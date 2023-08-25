@@ -77,7 +77,6 @@ export default {
 .search-results{
     width: 330px;
     max-height: 300px;
-    /* background-color: rgb(43, 41, 41); */
     backdrop-filter: blur(5px);
     overflow: hidden;
     display: block;
