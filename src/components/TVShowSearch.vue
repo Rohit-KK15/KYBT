@@ -12,7 +12,7 @@
   </div>
     <div v-if="tvShows.length > 0" class="search-results">
       <ul>
-        <li v-for="tvShow in tvShows" :key="tvShow.id">{{ tvShow.name }}</li>
+        <li v-for="tvShow in tvShows" :key="tvShow.id" @click="showTVShowDetails(tvShow.id)">{{ tvShow.name }}</li>
       </ul>
     </div>
 </template>
@@ -25,7 +25,9 @@ export default {
     return {
       searchQuery: '',
       isInputFocused: false,
-      tvShows: []
+      tvShows: [],
+      selectedTVShow: [],
+      apiKey: '398dd2815165a8a82bc1f26f61e23970',
     };
   },
   methods: {
@@ -40,8 +42,7 @@ export default {
         return;
       }
       
-      const apiKey = '398dd2815165a8a82bc1f26f61e23970';
-      const apiUrl = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=${this.searchQuery}`;
+      const apiUrl = `https://api.themoviedb.org/3/search/tv?api_key=${this.apiKey}&query=${this.searchQuery}`;
 
       axios.get(apiUrl)
         .then(response => {
@@ -50,6 +51,19 @@ export default {
         })
         .catch(error => {
           console.error('Error fetching TV shows:', error);
+        });
+    },
+
+    showTVShowDetails(tvShowId) {
+      const apiUrl = `https://api.themoviedb.org/3/tv/${tvShowId}?api_key=${this.apiKey}`;
+
+      axios.get(apiUrl)
+        .then(response => {
+          this.selectedTVShow = response.data;
+          console.log(this.selectedTVShow)
+        })
+        .catch(error => {
+          console.error('Error fetching TV show details:', error);
         });
     }
   }
