@@ -2,7 +2,7 @@
   <div class="bg"></div>
   <div class="kybt-container">
     <div class="heading">
-      <p style="text-shadow: 2px 2px 4px #000000;color: rgb(182, 34, 34);font-weight: bolder;font-size: 2rem;">Search For <span>TVShows</span></p>
+      <p style="text-shadow: 2px 2px 4px #000000;color: rgb(241, 195, 12);font-weight: bolder;font-size: 2rem;">Know Your Binge Time</p>
     </div>
     <tvshowsearch />
   </div>
