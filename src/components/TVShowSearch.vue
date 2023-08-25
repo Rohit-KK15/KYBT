@@ -1,6 +1,7 @@
 <template>
     <div class="search-container">
-        <input v-model="searchQuery" @input="searchTVShows" placeholder="Search TV Shows" class="search-input">
+      <fa :icon="['fas', 'magnifying-glass']" color="rgba(241, 195, 12)" class="search-icon"/>
+      <input v-model="searchQuery" @input="searchTVShows" placeholder="Search TV Shows" class="search-input">
     </div>
     <div v-if="tvShows.length > 0" class="search-results">
       <ul>
@@ -51,8 +52,15 @@ export default {
 
 .search-container {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
+    display: inline-block;
     overflow: hidden;
+    border-bottom: 2px solid rgba(241, 195, 12, 0.343);
+    transition: .3s;
+}
+
+.search-container .search-icon{
+  height: 1.2rem;
+  
 }
 
 .search-input {
@@ -64,11 +72,11 @@ export default {
   font-size: 18px;
   width: 300px;
   height: 25px;
-  border-bottom: 2px solid rgba(241, 195, 12, 0.343);
-  transition: .5s;
+  /* border-bottom: 2px solid rgba(241, 195, 12, 0.343); */
+  /* transition: .5s; */
 }
 
-.search-input:focus{
+.search-input:focus {
   border-bottom: 2px solid rgba(241, 195, 12, 0.682);
   outline: none;
 }
