@@ -22,7 +22,11 @@ export default {
   methods: {
     searchTVShows() {
       if (this.searchQuery.length <= 2) {
-        this.tvShows = [{'name': 'Enter '+(3-this.searchQuery.length)+' more Characters'}];
+        if(this.searchQuery.length === 0){
+          this.tvShows = []
+          return;
+        }
+        this.tvShows = [{'name': 'Enter '+(3-this.searchQuery.length)+' more characters..... '}];
         console.log(this.tvShows)
         return;
       }
@@ -76,6 +80,7 @@ export default {
     /* background-color: rgb(43, 41, 41); */
     backdrop-filter: blur(5px);
     overflow: hidden;
+    display: block;
 }
 
 .search-results li{
