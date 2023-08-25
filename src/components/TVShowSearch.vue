@@ -1,8 +1,15 @@
 <template>
-    <div class="search-container">
-      <fa :icon="['fas', 'magnifying-glass']" color="rgba(241, 195, 12)" class="search-icon"/>
-      <input v-model="searchQuery" @input="searchTVShows" placeholder="Search TV Shows" class="search-input">
-    </div>
+    <div :class="['search-container', { 'focused': isInputFocused }]">
+    <fa :icon="['fas', 'magnifying-glass']" class="search-icon" color=" rgba(241, 195, 12)" />
+    <input
+      v-model="searchQuery"
+      @focus="isInputFocused = true"
+      @blur="isInputFocused = false"
+      placeholder="Search TV Shows"
+      @input="searchTVShows"
+      class="search-input"
+    />
+  </div>
     <div v-if="tvShows.length > 0" class="search-results">
       <ul>
         <li v-for="tvShow in tvShows" :key="tvShow.id">{{ tvShow.name }}</li>
@@ -17,6 +24,7 @@ export default {
   data() {
     return {
       searchQuery: '',
+      isInputFocused: false,
       tvShows: []
     };
   },
@@ -51,14 +59,18 @@ export default {
 <style scoped>
 
 .search-container {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    overflow: hidden;
-    border-bottom: 2px solid rgba(241, 195, 12, 0.343);
-    transition: .3s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(241, 195, 12, 0.343);
+  transition: .3s;
 }
 
-.search-container .search-icon{
+.focused {
+  border-bottom-color: rgb(241, 195, 12);
+}
+
+.search-icon{
   height: 1.2rem;
   
 }
@@ -72,14 +84,16 @@ export default {
   font-size: 18px;
   width: 300px;
   height: 25px;
-  /* border-bottom: 2px solid rgba(241, 195, 12, 0.343); */
-  /* transition: .5s; */
 }
 
 .search-input:focus {
-  border-bottom: 2px solid rgba(241, 195, 12, 0.682);
   outline: none;
 }
+
+.search-input:focus ~ .search-container {
+    border-bottom:2px solid rgb(241, 195, 12);
+}
+
 
 .search-results{
     width: 330px;
