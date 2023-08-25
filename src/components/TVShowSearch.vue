@@ -44,27 +44,38 @@ export default {
 <style scoped>
 
 .search-container {
-    border-radius: 25px;
+    /* border-radius: 25px; */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     overflow: hidden;
+    /* border-bottom: 2px solid rgba(241, 195, 12, 0.343); */
 }
 
 .search-input {
-  background-color: rgb(43, 41, 41);
+
+  background-color: transparent;
   color: white;
   border: none;
   padding: 10px 15px;
   font-size: 18px;
   width: 300px;
   height: 25px;
-  border-radius: 25px 0 0 25px;
+  border-bottom: 2px solid rgba(241, 195, 12, 0.343);
+  transition: .5s;
+  /* border-radius: 25px 0 0 25px; */
+}
+
+.search-input:focus{
+  border-bottom: 2px solid rgba(241, 195, 12, 0.682);
+  outline: none;
 }
 
 .search-results{
     width: 300px;
     max-height: 300px;
     background-color: rgb(43, 41, 41);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
 }
 
 </style>
