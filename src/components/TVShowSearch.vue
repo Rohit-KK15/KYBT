@@ -21,8 +21,9 @@ export default {
   },
   methods: {
     searchTVShows() {
-      if (this.searchQuery.length === 0) {
-        this.tvShows = [];
+      if (this.searchQuery.length <= 2) {
+        this.tvShows = [{'name': 'Enter '+(3-this.searchQuery.length)+' more Characters'}];
+        console.log(this.tvShows)
         return;
       }
       
@@ -32,6 +33,7 @@ export default {
       axios.get(apiUrl)
         .then(response => {
           this.tvShows = response.data.results;
+          console.log(this.tvShows);
         })
         .catch(error => {
           console.error('Error fetching TV shows:', error);
@@ -44,11 +46,9 @@ export default {
 <style scoped>
 
 .search-container {
-    /* border-radius: 25px; */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     overflow: hidden;
-    /* border-bottom: 2px solid rgba(241, 195, 12, 0.343); */
 }
 
 .search-input {
@@ -71,11 +71,18 @@ export default {
 }
 
 .search-results{
-    width: 300px;
+    width: 330px;
     max-height: 300px;
-    background-color: rgb(43, 41, 41);
-    backdrop-filter: blur(8px);
+    /* background-color: rgb(43, 41, 41); */
+    backdrop-filter: blur(5px);
     overflow: hidden;
+}
+
+.search-results li{
+  list-style:none ;
+  color: rgba(241, 195, 12, 0.824);
+  font-weight: 400;
+  text-align: start;
 }
 
 </style>
