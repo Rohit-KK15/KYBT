@@ -66,7 +66,6 @@ export default {
   height: 25px;
   border-bottom: 2px solid rgba(241, 195, 12, 0.343);
   transition: .5s;
-  /* border-radius: 25px 0 0 25px; */
 }
 
 .search-input:focus{
