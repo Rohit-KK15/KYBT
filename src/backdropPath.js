@@ -1,13 +1,21 @@
-import Vue from 'vue';
+// import { createApp } from 'vue';
+// const Vue = createApp({});
 
-const state = Vue.observable({
-  backdropPath: "/rIe3PnM6S7IBUmvNwDkBMX0i9EZ.jpg"
-});
+// const eventBus = new Vue();
 
-export const setBackdropPath = newPath => {
-  state.backdropPath = newPath;
-};
+// const state = {
+//   backdropPath: "/rIe3PnM6S7IBUmvNwDkBMX0i9EZ.jpg"
+// };
 
-export const getBackdropPath = () => {
-  return state.backdropPath;
-};
+// export const setBackdropPath = newPath => {
+//   state.backdropPath = newPath;
+//   eventBus.$emit('backdropPathChanged', newPath);
+// };
+
+// export const getBackdropPath = () => {
+//   return state.backdropPath;
+// };
+
+// export const onBackdropPathChanged = callback => {
+//   eventBus.$on('backdropPathChanged', callback);
+// };
