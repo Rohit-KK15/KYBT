@@ -21,7 +21,7 @@
 
 <script>
 import axios from 'axios';
-import { setBackdropPath } from '../backdropPath.js';
+// import { setBackdropPath } from '../backdropPath.js';
 
 export default {
   data() {
@@ -63,7 +63,7 @@ export default {
       axios.get(apiUrl)
         .then(response => {
           this.selectedTVShow = response.data;
-          setBackdropPath(this.selectedTVShow.setBackdropPath)
+          // setBackdropPath(this.selectedTVShow.setBackdropPath)
         })
         .catch(error => {
           console.error('Error fetching TV show details:', error);
