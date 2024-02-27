@@ -99,7 +99,7 @@ export default {
   width: 100%;
   height: 100%;
   align-items: center;
-
+  transition: all .6s ease;
 }
 
 .kybt-container{
@@ -115,8 +115,10 @@ export default {
   z-index: -1;
   width: 100%;
   height: 100%;
+  /* background-color: rgb(0,0,0,0.5); */
+  /* opacity: 1.8; */
   /* background-image: url("https://image.tmdb.org/t/p/original/rIe3PnM6S7IBUmvNwDkBMX0i9EZ.jpg"); */
-  transition: all .3s ease;
+  /* transition: all .3s ease; */
   background-size: cover;
   background-position: 50% 0;
 }
